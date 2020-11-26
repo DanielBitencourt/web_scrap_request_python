@@ -1,5 +1,5 @@
 from requests import get
-#baixa todas as imagens de uma categoria(nature) por página
+#baixa todas as imagens de uma categoria(travel__world-desktop-wallpapers) por página
 #para mudar a categoria basta mudar no primeiro get e a quantidade de páginas(xx) conforme o site
 nome = 0
 for xx in range(1,60):
@@ -29,8 +29,8 @@ for xx in range(1,60):
             l3.clear()
 
         for c in l4:
-            bb = get('https://www.hdwallpapers.in/download/'+c+'-1920x1080.jpg')#caso a página não exista o site retorna a homepage
-            urlurl = 'https://www.hdwallpapers.in/download/'+c+'-1920x1080.jpg'
+            bb = get('https://www.hdwallpapers.in/download/'+c+'-1920x1080.jpg')#caso a página não exista o site retorna a homepage com status 200
+            urlurl = 'https://www.hdwallpapers.in/download/'+c+'-1920x1080.jpg' #e se faz necessário a checagem (bb.url == urlurl)
             if bb.status_code == 200 and bb.url == urlurl:
                 nome += 1
                 with open(salvamento+'image'+str(nome)+'.jpg', 'wb') as f:
